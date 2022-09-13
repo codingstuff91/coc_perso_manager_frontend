@@ -1,7 +1,7 @@
 <template>
     <div class="form_input">
         <label v-if="label">{{ label }}</label>
-        <input :type="$attrs" v-model="modelValue" @input="$emit('update:modelValue', $event.target.value)">
+        <input :type="$attrs.type" v-model="modelValue" @input="$emit('update:modelValue', $event.target.value)">
     </div>
 </template>
 
@@ -45,14 +45,13 @@
         border: 2px solid red;
     }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 768px) {
     .form_input input{
-        margin : 0.7em 0;
+        margin : 0.2em 0;
         border : none;
         padding : 0 1em;
         font-size: 1em;
-        height: 2.5em;
-        width: 80%;
+        width: 90%;
         border-radius: 5px;
     }
 }
