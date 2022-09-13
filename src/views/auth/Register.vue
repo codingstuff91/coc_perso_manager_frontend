@@ -6,29 +6,35 @@
         <BaseInput 
             type="text" 
             label="Nom utilisateur ou Pseudo" 
-            v-model="user.name"
+            v-model="name"
         />
-        <!-- <p v-if="errors.user.name">{{ errors[user.name] }}</p> -->
+        <p class="error_message" v-if="errors.name">{{ errors.name }}</p>
+
         <BaseInput 
-            type="text" 
+            type="text"
             label="Adresse email" 
-            v-model="user.email"
+            v-model="email"
         />
+        <p class="error_message" v-if="errors.email">{{ errors.email }}</p>
+
         <BaseInput 
-            type="text" 
+            type="password" 
             label="Mot de passe" 
-            v-model="user.password"
+            v-model="password"
         />
+        <p class="error_message" v-if="errors.password">{{ errors.password }}</p>
+
         <BaseInput 
-            type="text" 
+            type="password" 
             label="Confirmation mot de passe" 
-            v-model="user.confirm_password"
+            v-model="confirm_password"
         />
+        <p class="error_message" v-if="errors.password_confirm">{{ errors.password_confirm }}</p>
+
         <BaseButton 
             text="Confirmer" 
             @click="submitRegister"
         />
-        {{ errors }}
     </div>
 </template>
 
@@ -44,37 +50,39 @@ import axios from 'axios';
         },
         data() {
             return {
-                user: {
-                    name : '',
-                    email : '',
-                    password : '',
-                    confirm_password : ''
-                },
+                name : '',
+                email : '',
+                password : '',
+                confirm_password : '',
                 errors : {}
             }
         },
         methods: {
             checkPassword(){
-                if(this.user.password != this.user.confirm_password){
-                    // throw "les mots de passe ne sont pas conformes !!";
-                    alert('les mots de passe ne sont pas identiques !!');
-                    return false;
-                }
+                return new Promise((resolve, reject) => {
+                    if(this.password != this.confirm_password){
+                        reject("les mots de passe ne sont pas conformes !!");
+                    }
+                    resolve();
+                })
             },
             async submitRegister() {
-                try {
-                    await this.checkPassword();
-                } catch (error) {
-                    return alert(error)
-                }
+                this.errors = {};
 
-                axios.post('http://localhost:8000/api/auth/register', {
-                    user : this.user
-                }).then(response => {
-                    console.log(response.data)
+                this.checkPassword().then(()=>{
+                    axios.post('http://localhost:8000/api/auth/register', {
+                        name : this.name,
+                        email : this.email,
+                        password : this.password,
+                    }).then(response => {
+                        console.log(response.data)
+                    }).catch(error => {
+                        for (const property in error.response.data.errors) {
+                            this.errors[property] = error.response.data.errors[property][0];
+                        }
+                    })
                 }).catch(error => {
-                    console.log(error.response.data.errors);
-                    this.errors = error.response.data.errors;
+                    this.errors['password_confirm'] = error
                 });
             }
         },
@@ -84,5 +92,9 @@ import axios from 'axios';
 <style lang="css" scoped>
 img{
     margin: 20px auto;
+}
+.error_message{
+    margin: 10px auto;
+    color : red;
 }
 </style>
