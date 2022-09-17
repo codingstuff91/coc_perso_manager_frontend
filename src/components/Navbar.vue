@@ -6,6 +6,7 @@
             </div>
             <div class="nav-links">
                 <router-link to="/">Accueil</router-link>
+                <router-link to="/characters">Personnages</router-link>
                 <router-link to="/register">Inscription</router-link>
                 <router-link to="/login">Connexion</router-link>
             </div>
@@ -45,7 +46,7 @@
 }
 .nav-links{
     display: flex;
-    width: 250px;
+    width: 350px;
     justify-content: space-between;
 }
 .nav-links a{
