@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="../assets/coc_logo.jpg">
+    <h1>Gérez simplement vos personnages de jeu de roles</h1>
+    <h2>Pour le jeu de roles "Chroniques oubliées Contemporain"</h2>
   </div>
 </template>
 
@@ -16,3 +17,16 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+img{
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+h1{
+  margin: 20px 0;
+}
+
+</style>
