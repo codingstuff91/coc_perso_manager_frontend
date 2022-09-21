@@ -1,16 +1,19 @@
 <template>
   <Navbar/>
   <div class="container">
+    <MobileMenu/>
     <router-view/>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import MobileMenu from '@/components/MobileMenu.vue';
 
 export default {
   components: {
     Navbar,
+    MobileMenu
   },
 }
 </script>

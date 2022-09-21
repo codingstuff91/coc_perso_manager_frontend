@@ -2,7 +2,7 @@
     <div class="navbar">
         <div class="navbar-container">
             <div class="nav-logo">
-                <img alt="main logo" src="../assets/logo.png" width="40" height="40">
+                <img alt="main logo" src="../assets/coc_logo.jpg" width="100" height="40">
             </div>
             <div class="nav-links">
                 <router-link to="/">Accueil</router-link>
@@ -10,13 +10,19 @@
                 <router-link to="/register">Inscription</router-link>
                 <router-link to="/login">Connexion</router-link>
             </div>
+            <img src="../assets/mobile_menu.png" height="50" @click="displayMobileMenu">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        
+        methods: {
+            displayMobileMenu() {
+                alert('test')
+                this.$store.dispatch('displayMobileMenu');
+            }
+        },
     }
 </script>
 
@@ -63,6 +69,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .nav-links{
+        display: none;
     }
 }
 </style>

@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width : 65%;
+    width : 85%;
     margin: 0 auto;
 }
 
@@ -47,9 +47,9 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
-    margin: 20px 0;
+    margin-top: 10px;
     background-color: #ffff;
-    width : 80%;
+    width : 95%;
     font-size: 16px;
     font-weight: bold;
 }
