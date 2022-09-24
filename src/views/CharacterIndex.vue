@@ -1,14 +1,12 @@
 <template>
-    <div class="title">
-        <img src="../assets/character.png" width="50">
-        <h1>Personnages jouables</h1>
-    </div>
+    <SubNavbar title="Personnage"/>
     <Character />
 </template>
 
 <script>
 import CharacterService from '@/services/CharacterService';
 import Character from '@/components/Character.vue';
+import SubNavbar from '@/components/SubNavbar.vue';
 
     export default {
     methods: {
@@ -19,14 +17,15 @@ import Character from '@/components/Character.vue';
     mounted() {
         this.getCharacters();
     },
-    components: { 
-        Character, 
-    }
+    components: {
+    Character,
+    SubNavbar
+}
 }
 </script>
 
 <style lang="css" scoped>
-.title{
+/* .title{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,5 +40,5 @@ h1{
     font-size: 18px;
     color: #ffff;
     margin-top: 10px;
-}
+} */
 </style>
