@@ -1,5 +1,5 @@
 <template>
-    <h1>Connexion</h1>
+    <h1 class="pt-10 font-bold text-2xl text-center">Connexion</h1>
 
     <BaseInput 
         type="text" 
@@ -18,7 +18,10 @@
             @click="submitLogin"
         />
     
-    <small class="subtitle">Pas encore de compte ? Inscrivez vous ici : <button><a href="/register">Inscription</a></button></small>
+    <p class="mt-2 text-center">Vous n'avez pas de compte ?</p>
+    <p class="mt-4 text-center">Inscrivez vous ici : 
+        <a href="/register" class="p-2 bg-slate-600 text-white rounded-lg">Inscription</a>
+    </p> 
 </template>
 
 <script>
@@ -49,13 +52,3 @@ import BaseButton from '@/components/forms/BaseButton.vue';
         },
     }
 </script>
-
-<style lang="css" scoped>
-h1{
-    margin:30px auto;
-}
-.subtitle{
-    display: block;
-    margin: 10px auto;
-}
-</style>
