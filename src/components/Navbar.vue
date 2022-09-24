@@ -1,16 +1,16 @@
 <template>
-    <div class="navbar">
-        <div class="navbar-container">
+    <div class="navbar bg-white h-20 border-b-4 border-slate-400 w-[100%] fixed">
+        <div class="navbar-container bg-white w-[85%] mx-auto h-[100%] flex items-center justify-between">
             <div class="nav-logo">
-                <img alt="main logo" src="../assets/coc_logo.jpg" width="100" height="40">
+                <img alt="main logo" src="../assets/coc_logo.jpg" class="w-[180px]">
             </div>
-            <div class="nav-links">
+            <div class="nav-links sm:hidden">
                 <router-link to="/">Accueil</router-link>
                 <router-link to="/characters">Personnages</router-link>
                 <router-link to="/register">Inscription</router-link>
                 <router-link to="/login">Connexion</router-link>
             </div>
-            <img src="../assets/mobile_menu.png" height="50" @click="displayMobileMenu">
+            <img src="../assets/mobile_menu.png" class="w-14 md:hidden" @click="displayMobileMenu">
         </div>
     </div>
 </template>
@@ -19,7 +19,6 @@
     export default {
         methods: {
             displayMobileMenu() {
-                alert('test')
                 this.$store.dispatch('displayMobileMenu');
             }
         },
@@ -31,24 +30,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-.navbar{
-    /* background-color: red; */
-    height: 65px;
-    border-bottom: 2px solid lightgray;
-    background-color: #ffff;
-    position: fixed;
-    width: 100%;
-}
-.navbar-container{
-    max-width: 80%;
-    padding: 0 20px;
-    margin: 0 auto;
-    background-color: #ffff;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 .nav-links{
     display: flex;
