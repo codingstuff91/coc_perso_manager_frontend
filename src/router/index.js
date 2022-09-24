@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Register from '../views/auth/Register.vue';
 import Login from '../views/auth/Login.vue';
 import CharacterIndex from '../views/CharacterIndex.vue';
+import CharacterShow from '../views/CharacterShow.vue';
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/characters',
     name: 'characters',
     component: CharacterIndex
+  },
+  {
+    path: '/character/:id',
+    name: 'character.show',
+    component: CharacterShow
   },
 ]
 
