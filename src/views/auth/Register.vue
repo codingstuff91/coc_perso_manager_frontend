@@ -1,8 +1,6 @@
 <template>
     <div>
-        <img src="../../assets/coc_logo.jpg" width="300">
-
-        <h1>Créez votre compte dès à présent</h1>
+        <h1 class="pt-10 font-bold text-2xl text-center">Inscrivez-vous</h1>
         <BaseInput 
             type="text" 
             label="Nom utilisateur ou Pseudo" 
@@ -90,9 +88,6 @@ import axios from 'axios';
 </script>
 
 <style lang="css" scoped>
-img{
-    margin: 20px auto;
-}
 .error_message{
     margin: 10px auto;
     color : red;
