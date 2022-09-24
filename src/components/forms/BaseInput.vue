@@ -1,7 +1,14 @@
 <template>
-    <div class="form_input">
-        <label v-if="label">{{ label }}</label>
-        <input :type="$attrs.type" v-model="modelValue" @input="$emit('update:modelValue', $event.target.value)">
+    <div class="form_input my-6 mx-auto w-[100%] flex flex-col align-items">
+        <label v-if="label" class="text-xl font-bold text-center">
+            {{ label }}
+        </label>
+        <input
+            class="mt-1 h-4 p-4 rounded-lg focus:outline-none focus:ring focus:ring-stale-400"
+            :type="$attrs.type" 
+            v-model="modelValue" 
+            @input="$emit('update:modelValue', $event.target.value)"
+        >
     </div>
 </template>
 
@@ -19,40 +26,3 @@
         },
     }
 </script>
-
-<style lang="css" scoped>
-    .form_input{
-        margin: 1.2rem 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .form_input label{
-        font-size: 1.5em;
-    }
-    .form_input input{
-        margin : 1em 0;
-        border : none;
-        padding : 0 1em;
-        font-size: 1em;
-        height: 2em;
-        width: 25%;
-        border-radius: 5px;
-    }
-
-    .form_input input:focus{
-        border: 2px solid red;
-    }
-
-@media screen and (max-width: 768px) {
-    .form_input input{
-        margin : 0.2em 0;
-        border : none;
-        padding : 0 1em;
-        font-size: 1em;
-        width: 90%;
-        border-radius: 5px;
-    }
-}
-</style>
