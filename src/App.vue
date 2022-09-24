@@ -26,16 +26,7 @@ export default {
 }
 
 #app {
-  width: 100%;
-  margin-top: 100px;
-  /* border: 2px solid red; */
-  margin: 0 auto;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   background-color: #e9ecf1;
-  /* color: #2c3e50; */
 }
 
 .container{
@@ -43,6 +34,5 @@ export default {
   max-width: 80%;
   height: 100vh;
   margin: 0 auto;
-  /* border: 2px solid blue; */
 }
 </style>
