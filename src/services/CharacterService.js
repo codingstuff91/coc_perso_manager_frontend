@@ -11,13 +11,11 @@ const apiClient = axios.create({
   }
 });
 
-// if(authToken) {
-//     console.log(authToken);
-//     apiClient.headers.Authorization = "Bearer " + authToken
-// }
-
 export default {
   getCharacters() {
     return apiClient.get('/api/characters');
+  },
+  getCharacter({characterId}) {
+    return apiClient.get('/api/characters/' + characterId);
   }
 }

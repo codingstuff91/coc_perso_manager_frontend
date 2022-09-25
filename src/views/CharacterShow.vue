@@ -21,6 +21,8 @@ import CharacterVitality from '@/components/CharacterVitality.vue';
 import CharacterCombatSkills from '@/components/CharacterCombatSkills.vue';
 import CharacterWeapons from '@/components/CharacterWeapons.vue';
 import CharacterCapacities from '@/components/CharacterCapacities.vue';
+import { mapState } from 'vuex'
+
 
     export default {
         components: {
@@ -30,7 +32,13 @@ import CharacterCapacities from '@/components/CharacterCapacities.vue';
             CharacterCombatSkills,
             CharacterWeapons,
             CharacterCapacities,
-        }
+        },
+        computed: mapState({
+            characterInfos : state => state.character
+        }),
+        async mounted () {
+            await this.$store.dispatch('getCharacterInformations', { characterId : this.$route.params.id })
+        },
 }
 </script>
 
