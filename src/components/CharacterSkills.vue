@@ -34,9 +34,9 @@
                 </div>
             </div>
             <div class="card">
-                <h1 class="card-header">Trait : Robuste</h1>
+                <h1 class="card-header">Trait : {{ character.particularity.name }}</h1>
                 <div class="mt-2 text-center text-sm text-white bg-black p-2 rounded-md w-full">
-                    <p>Bonus de +5 pour transporter une charge très lourde</p>
+                    <p>{{ character.particularity.description }}</p>
                 </div>
             </div>
         </div>
@@ -45,7 +45,11 @@
 
 <script>
     export default {
-        
+        props: {
+            character : {
+                type: Object
+            },
+        },
     }
 </script>
 

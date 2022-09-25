@@ -1,8 +1,8 @@
 <template>
     <div>
-        <SubNavbar title="James BOND"/>
+        <SubNavbar :title="characterInfos.name"/>
 
-        <CharacterSkills/>
+        <CharacterSkills :character="characterInfos"/>
 
         <CharacterVitality/>
 
