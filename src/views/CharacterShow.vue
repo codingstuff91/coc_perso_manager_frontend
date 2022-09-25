@@ -6,6 +6,8 @@
 
         <CharacterVitality/>
 
+        <CharacterCombatSkills/>
+
     </div>
 </template>
 
@@ -13,12 +15,14 @@
 import SubNavbar from '@/components/SubNavbar.vue';
 import CharacterSkills from '../components/CharacterSkills.vue';
 import CharacterVitality from '@/components/CharacterVitality.vue';
+import CharacterCombatSkills from '@/components/CharacterCombatSkills.vue';
 
     export default {
     components: {
         SubNavbar,
         CharacterSkills,
-        CharacterVitality
+        CharacterVitality,
+        CharacterCombatSkills
     }
 }
 </script>
