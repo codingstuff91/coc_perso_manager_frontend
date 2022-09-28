@@ -4,7 +4,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     mobileMenu : false,
-    character : {}
+    character : {},
+    attributes : []
   },
   getters: {
   },
@@ -14,14 +15,24 @@ export default createStore({
     },
     STORE_CHARACTER_INFOS(state, characterData){
       state.character = characterData
+    },
+    STORE_CHARACTER_ATTRIBUTES(state, characterData){
+      state.attributes = characterData
     }
   },
   actions: {
     displayMobileMenu({commit}){
       commit('DISPLAY_MOBILE_MENU');
     },
-    getCharacterInformations({commit}, characterId){
-      CharacterService.getCharacter(characterId).then( response => commit('STORE_CHARACTER_INFOS', response.data))
+    async getCharacterInformations({commit}, characterId){
+      await CharacterService.getCharacter(characterId).then( response => {
+        commit('STORE_CHARACTER_INFOS', response.data)
+      });
+    },
+    async characterAttributesValues({commit}, characterId){
+      await CharacterService.getAttributesValues(characterId).then( response => {
+        commit('STORE_CHARACTER_ATTRIBUTES', response.data)
+      });
     }
   },
   modules: {

@@ -2,15 +2,15 @@
     <div>
         <SubNavbar :title="characterInfos.name"/>
 
-        <CharacterSkills :character="characterInfos"/>
+        <CharacterSkills />
 
-        <CharacterVitality/>
+        <CharacterVitality />
 
-        <CharacterCombatSkills/>
+        <CharacterCombatSkills />
 
-        <CharacterWeapons/>
+        <CharacterWeapons />
 
-        <CharacterCapacities/>
+        <CharacterCapacities />
     </div>
 </template>
 
@@ -36,7 +36,7 @@ import { mapState } from 'vuex'
         computed: mapState({
             characterInfos : state => state.character
         }),
-        async mounted () {
+        async created () {
             await this.$store.dispatch('getCharacterInformations', { characterId : this.$route.params.id })
         },
 }

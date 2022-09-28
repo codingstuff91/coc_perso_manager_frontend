@@ -5,32 +5,32 @@
             <h2 class="text-center text-md text-white">(Valeur / Modificateur)</h2>
             <div class="columns-2 gap-4 flex justify-between">
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
-                    <p>Force</p>
-                    <p>18 / +2</p>
+                    <p>{{ character.attributes[0].name }}</p>
+                    <p>{{ character.attributes[0].pivot.value }} / {{ character.attributes[0].pivot.modificator }}</p>
                 </div>
                 <div class="flex justify-between mt-2 p-2 rounded-md text-white bg-black w-full">
-                    <p>Dextérité</p>
-                    <p>10 / 0</p>
+                    <p>{{ character.attributes[1].name }}</p>
+                    <p>{{ character.attributes[1].pivot.value }} / {{ character.attributes[1].pivot.modificator }}</p>
                 </div>
             </div>
             <div class="columns-2 gap-2 flex justify-between">
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
-                    <p>Constitution</p>
-                    <p>18 / +2</p>
+                    <p>{{ character.attributes[2].name }}</p>
+                    <p>{{ character.attributes[2].pivot.value }} / {{ character.attributes[2].pivot.modificator }}</p>
                 </div>
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
-                    <p>Intelligence</p>
-                    <p>10 / 0</p>
+                    <p>{{ character.attributes[3].name }}</p>
+                    <p>{{ character.attributes[3].pivot.value }} / {{ character.attributes[3].pivot.modificator }}</p>
                 </div>
             </div>
             <div class="columns-2 gap-2 flex justify-between">
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
-                    <p>Perception</p>
-                    <p>18 / +2</p>
+                    <p>{{ character.attributes[4].name }}</p>
+                    <p>{{ character.attributes[4].pivot.value }} / {{ character.attributes[4].pivot.modificator }}</p>
                 </div>
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
-                    <p>Charisme</p>
-                    <p>10 / 0</p>
+                    <p>{{ character.attributes[5].name }}</p>
+                    <p>{{ character.attributes[5].pivot.value }} / {{ character.attributes[5].pivot.modificator }}</p>
                 </div>
             </div>
             <div class="card">
@@ -44,15 +44,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
     export default {
-        props: {
-            character : {
-                type: Object
-            },
-        },
-    }
+        computed: mapState({
+            character : state => state.character
+        })
+}
 </script>
-
-<style lang="scss" scoped>
-
-</style>
