@@ -8,6 +8,9 @@ export default createStore({
     attributes : []
   },
   getters: {
+    isLoggedIn(){
+      return !!localStorage.getItem('token');
+    }
   },
   mutations: {
     DISPLAY_MOBILE_MENU(state){
