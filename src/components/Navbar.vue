@@ -7,8 +7,8 @@
             <div class="nav-links">
                 <router-link class="nav-link" to="/">Accueil</router-link>
                 <router-link class="nav-link" to="/characters">Personnages</router-link>
-                <router-link  class="nav-link" to="/register">Inscription</router-link>
-                <router-link  class="nav-link" to="/login">Connexion</router-link>
+                <router-link  class="nav-link" to="/register" v-if="!isLogged">Inscription</router-link>
+                <router-link  class="nav-link" to="/login" v-if="!isLogged">Connexion</router-link>
             </div>
             <img src="../assets/mobile_menu.png" class="w-14 md:hidden" @click="displayMobileMenu">
         </div>
@@ -22,6 +22,11 @@
                 this.$store.dispatch('displayMobileMenu');
             }
         },
+        computed: {
+            isLogged() {
+                return this.$store.getters.isLoggedIn 
+            }
+        }
     }
 </script>
 
