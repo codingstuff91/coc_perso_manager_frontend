@@ -6,31 +6,31 @@
             <div class="columns-2 gap-4 flex justify-between">
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
                     <p>{{ character.attributes[0].name }}</p>
-                    <p>{{ character.attributes[0].pivot.value }} / {{ character.attributes[0].pivot.modificator }}</p>
+                    <p>{{ character.attributes[0].pivot.value }} / {{ formatModificator(character.attributes[0].pivot.modificator) }}</p>
                 </div>
                 <div class="flex justify-between mt-2 p-2 rounded-md text-white bg-black w-full">
                     <p>{{ character.attributes[1].name }}</p>
-                    <p>{{ character.attributes[1].pivot.value }} / {{ character.attributes[1].pivot.modificator }}</p>
+                    <p>{{ character.attributes[1].pivot.value }} / {{ formatModificator(character.attributes[1].pivot.modificator) }}</p>
                 </div>
             </div>
             <div class="columns-2 gap-2 flex justify-between">
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
                     <p>{{ character.attributes[2].name }}</p>
-                    <p>{{ character.attributes[2].pivot.value }} / {{ character.attributes[2].pivot.modificator }}</p>
+                    <p>{{ character.attributes[2].pivot.value }} / {{ formatModificator(character.attributes[2].pivot.modificator) }}</p>
                 </div>
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
                     <p>{{ character.attributes[3].name }}</p>
-                    <p>{{ character.attributes[3].pivot.value }} / {{ character.attributes[3].pivot.modificator }}</p>
+                    <p>{{ character.attributes[3].pivot.value }} / {{ formatModificator(character.attributes[3].pivot.modificator) }}</p>
                 </div>
             </div>
             <div class="columns-2 gap-2 flex justify-between">
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
                     <p>{{ character.attributes[4].name }}</p>
-                    <p>{{ character.attributes[4].pivot.value }} / {{ character.attributes[4].pivot.modificator }}</p>
+                    <p>{{ character.attributes[4].pivot.value }} / {{ formatModificator(character.attributes[4].pivot.modificator) }}</p>
                 </div>
                 <div class="flex justify-between mt-2 p-2 rounded-md text-sm text-white bg-black w-full">
                     <p>{{ character.attributes[5].name }}</p>
-                    <p>{{ character.attributes[5].pivot.value }} / {{ character.attributes[5].pivot.modificator }}</p>
+                    <p>{{ character.attributes[5].pivot.value }} / {{ formatModificator(character.attributes[5].pivot.modificator) }}</p>
                 </div>
             </div>
             <div class="card">
@@ -49,6 +49,11 @@ import { mapState } from 'vuex'
     export default {
         computed: mapState({
             character : state => state.character
-        })
+        }),
+        methods: {
+            formatModificator(value) {
+                return value > 0 ? `+${value}` : value;
+            }
+        },
 }
 </script>
