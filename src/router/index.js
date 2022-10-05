@@ -4,6 +4,7 @@ import Register from '../views/auth/Register.vue';
 import Login from '../views/auth/Login.vue';
 import CharacterIndex from '../views/CharacterIndex.vue';
 import CharacterShow from '../views/CharacterShow.vue';
+import store from '../store';
 
 const routes = [
   {
@@ -24,29 +25,26 @@ const routes = [
   {
     path: '/characters',
     name: 'characters',
-    component: CharacterIndex
+    component: CharacterIndex,
+    beforeEnter : [checkUser]
   },
   {
     path: '/character/:id',
     name: 'character.show',
-    component: CharacterShow
+    component: CharacterShow,
+    beforeEnter : [checkUser]
   },
 ]
+
+function checkUser() {
+  if(!localStorage.getItem('token')) {
+    router.push('/login')
+  }
+}
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 });
-
-// router.beforeEach((to, from, next)=>{
-  // if(to == 'register' || to == 'login') {
-  //   next();
-  // }
-
-  // if(!localStorage.getItem('token')) {
-  //   router.push('login');
-  // }
-
-// });
 
 export default router
