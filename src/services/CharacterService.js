@@ -17,5 +17,8 @@ export default {
   },
   getCharacter({characterId}) {
     return apiClient.get('/api/characters/' + characterId);
+  },
+  getCharacterCapacities({characterId}) {
+    return apiClient.get('/api/character/' + characterId + '/capacities');
   }
 }

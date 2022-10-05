@@ -33,11 +33,17 @@ import { mapState } from 'vuex'
             CharacterWeapons,
             CharacterCapacities,
         },
+        data() {
+            return {
+                characterId: this.$route.params.id
+            }
+        },
         computed: mapState({
             characterInfos : state => state.character
         }),
         async created () {
-            await this.$store.dispatch('getCharacterInformations', { characterId : this.$route.params.id })
+            await this.$store.dispatch('getCharacterInformations', { characterId : this.characterId })
+            await this.$store.dispatch('getCharacterCapacities', { characterId : this.characterId })
         },
 }
 </script>

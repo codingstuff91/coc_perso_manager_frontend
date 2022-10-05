@@ -5,7 +5,8 @@ export default createStore({
   state: {
     mobileMenu : false,
     character : {},
-    attributes : []
+    attributes : [],
+    capacities : []
   },
   getters: {
     isLoggedIn(){
@@ -21,6 +22,9 @@ export default createStore({
     },
     STORE_CHARACTER_ATTRIBUTES(state, characterData){
       state.attributes = characterData
+    },
+    STORE_CHARACTER_CAPACITIES(state, characterData){
+      state.capacities = characterData
     }
   },
   actions: {
@@ -36,6 +40,12 @@ export default createStore({
       await CharacterService.getAttributesValues(characterId).then( response => {
         commit('STORE_CHARACTER_ATTRIBUTES', response.data)
       });
+    },
+    async getCharacterCapacities({commit}, characterId) {
+      await CharacterService.getCharacterCapacities(characterId).then(response => {
+        console.log(response.data);
+        commit('STORE_CHARACTER_CAPACITIES', response.data)
+      })
     }
   },
   modules: {
