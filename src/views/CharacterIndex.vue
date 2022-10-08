@@ -8,25 +8,22 @@
 </template>
 
 <script>
-import CharacterService from '@/services/CharacterService';
+import { mapState } from 'vuex'
+
 import Character from '@/components/Character.vue';
 import SubNavbar from '@/components/SubNavbar.vue';
 
     export default {
         data() {
             return {
-                characters : []
+                userId : 1
             }
         },
-        methods: {
-            getCharacters() {
-                CharacterService.getCharacters().then(response => { 
-                    this.characters = response.data;
-                });
-            }
-        },
-        mounted() {
-            this.getCharacters();
+        computed: mapState({
+            characters : state => state.characters
+        }),
+        async mounted() {
+            await this.$store.dispatch('getCharacters', { userId : this.userId })
         },
         components: {
             Character,
