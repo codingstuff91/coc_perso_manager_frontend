@@ -74,6 +74,7 @@ import axios from 'axios';
                         password : this.password,
                     }).then(response => {
                         console.log(response.data)
+                        this.$router.push('/login')
                     }).catch(error => {
                         for (const property in error.response.data.errors) {
                             this.errors[property] = error.response.data.errors[property][0];

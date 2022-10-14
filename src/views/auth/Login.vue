@@ -47,6 +47,7 @@ import BaseButton from '@/components/forms/BaseButton.vue';
                     password : this.password})
                 .then(({data}) => {
                     localStorage.setItem('token', data);
+                    this.$router.push('/characters');
                 })
             }
         },
