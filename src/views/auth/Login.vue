@@ -14,9 +14,9 @@
     />
 
     <BaseButton 
-            text="Connexion" 
-            @click="submitLogin"
-        />
+        text="Connexion" 
+        @click="submitLogin"
+    />
     
     <p class="mt-2 text-center">Vous n'avez pas de compte ?</p>
     <p class="mt-4 text-center">Inscrivez vous ici : 
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import AuthService from '@/services/AuthService';
 import BaseInput from '@/components/forms/BaseInput.vue';
 import BaseButton from '@/components/forms/BaseButton.vue';
 
@@ -41,14 +40,9 @@ import BaseButton from '@/components/forms/BaseButton.vue';
             BaseButton
         },
         methods: {
-            submitLogin() {
-                AuthService.login({
-                    email : this.email, 
-                    password : this.password})
-                .then(({data}) => {
-                    localStorage.setItem('token', data);
-                    this.$router.push('/characters');
-                })
+            async submitLogin() {
+                await this.$store.dispatch('userLogin', {email : this.email, password : this.password});
+                this.$router.push('/characters');
             }
         },
     }

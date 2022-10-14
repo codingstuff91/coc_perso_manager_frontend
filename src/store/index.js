@@ -1,5 +1,6 @@
 import CharacterService from '@/services/CharacterService';
 import { createStore } from 'vuex'
+import AuthService from '@/services/AuthService';
 
 export default createStore({
   state: {
@@ -7,7 +8,8 @@ export default createStore({
     characters : [],
     character : {},
     attributes : [],
-    capacities : []
+    capacities : [],
+    user : {}
   },
   getters: {
     isLoggedIn(){
@@ -29,9 +31,22 @@ export default createStore({
     },
     STORE_CHARACTER_CAPACITIES(state, characterData){
       state.capacities = characterData
+    },
+    STORE_USER(state, userData){
+      state.user = userData
     }
   },
   actions: {
+    userLogin({commit}, user){
+      AuthService.login({
+          email : user.email, 
+          password : user.password})
+      .then(({data}) => {
+          localStorage.setItem('token', data[1]);
+          localStorage.setItem('userId', data[0].id);
+          commit('STORE_USER', data[0])
+      })
+    },
     displayMobileMenu({commit}){
       commit('DISPLAY_MOBILE_MENU');
     },

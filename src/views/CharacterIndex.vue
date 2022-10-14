@@ -16,11 +16,12 @@ import SubNavbar from '@/components/SubNavbar.vue';
     export default {
         data() {
             return {
-                userId : 1
+                userId : localStorage.getItem('userId')
             }
         },
         computed: mapState({
-            characters : state => state.characters
+            characters : state => state.characters,
+            userId : state => state.user.id
         }),
         async mounted() {
             await this.$store.dispatch('getCharacters', { userId : this.userId })
