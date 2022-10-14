@@ -21,7 +21,6 @@ import SubNavbar from '@/components/SubNavbar.vue';
         },
         computed: mapState({
             characters : state => state.characters,
-            userId : state => state.user.id
         }),
         async mounted() {
             await this.$store.dispatch('getCharacters', { userId : this.userId })
