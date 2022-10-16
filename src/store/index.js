@@ -86,14 +86,13 @@ export default createStore({
         commit('STORE_PARTICULARITIES', data)
       })
     },
-    getParticularity({commit}, particularityId){
-      ParticularitiesService.getParticularity(particularityId).then(({data}) => {
+    async getParticularity({commit}, particularityId){
+      await ParticularitiesService.getParticularity(particularityId).then(({data}) => {
         commit('STORE_PARTICULARITY', data)
       })
     },
-    updateParticularity({commit}, {particularity}){
-      console.log("Id recue par action", particularity.id);
-      ParticularitiesService.updateParticularity(particularity);
+    async updateParticularity({commit}, {particularity}){
+      await ParticularitiesService.updateParticularity(particularity);
     }
   },
   modules: {
