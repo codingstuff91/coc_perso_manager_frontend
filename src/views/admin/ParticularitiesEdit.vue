@@ -7,6 +7,13 @@
             v-model="particularity.name"
         />
 
+        <BaseTextArea         
+            type="text" 
+            label="Description"
+            rows="7" 
+            v-model="particularity.description"
+        />
+
         <BaseButton 
             text="Mettre à jour" 
             @click="updateParticularity"
@@ -18,6 +25,7 @@
 import { mapState } from 'vuex'
 import BaseInput from '@/components/forms/BaseInput.vue'
 import BaseButton from '@/components/forms/BaseButton.vue'
+import BaseTextArea from '@/components/forms/BaseTextArea.vue'
 
     export default {
         data() {
@@ -30,7 +38,8 @@ import BaseButton from '@/components/forms/BaseButton.vue'
         },
         components: {
             BaseInput,
-            BaseButton
+            BaseButton,
+            BaseTextArea
         },
         computed: mapState({
             particularity : state => state.particularity
