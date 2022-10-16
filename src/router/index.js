@@ -4,6 +4,8 @@ import Register from '../views/auth/Register.vue';
 import Login from '../views/auth/Login.vue';
 import CharacterIndex from '../views/CharacterIndex.vue';
 import CharacterShow from '../views/CharacterShow.vue';
+import AdminIndex from '../views/admin/AdminIndex.vue';
+import ParticularitiesIndex from '../views/admin/ParticularitiesIndex.vue';
 import store from '../store';
 
 const routes = [
@@ -33,6 +35,16 @@ const routes = [
     name: 'character.show',
     component: CharacterShow,
     beforeEnter : [checkUser]
+  },
+  {
+    path: '/admin',
+    name: 'admin.index',
+    component: AdminIndex
+  },
+  {
+    path: '/admin/traits',
+    name: 'traits.index',
+    component: ParticularitiesIndex
   },
 ]
 

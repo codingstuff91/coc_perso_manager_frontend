@@ -7,6 +7,7 @@
             <div class="nav-links">
                 <router-link class="nav-link" to="/">Accueil</router-link>
                 <router-link class="nav-link" to="/characters">Personnages</router-link>
+                <router-link class="nav-link" to="/admin">Admin</router-link>
                 <router-link  class="nav-link" to="/register" v-if="!isLogged">Inscription</router-link>
                 <router-link  class="nav-link" to="/login" v-if="!isLogged">Connexion</router-link>
             </div>
