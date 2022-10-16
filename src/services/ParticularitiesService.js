@@ -12,5 +12,15 @@ const apiClient = axios.create({
 export default {
   getAll() {
     return apiClient.get('/api/admin/particularities')
-  }
+  },
+  getParticularity({particularityId}){
+    return apiClient.get("api/admin/particularities/" + particularityId + "/edit")
+  },
+  updateParticularity(particularity){
+    return apiClient.put("api/admin/particularities/" + particularity.id, {
+      name : particularity.name,
+      description : particularity.description
+    })
+  },
+
 }

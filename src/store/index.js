@@ -11,6 +11,7 @@ export default createStore({
     attributes : [],
     capacities : [],
     particularities : [],
+    particularity : {},
     user : {}
   },
   getters: {
@@ -39,6 +40,9 @@ export default createStore({
     },
     STORE_PARTICULARITIES(state, particularities){
       state.particularities = particularities
+    },
+    STORE_PARTICULARITY(state, particularity){
+      state.particularity = particularity
     }
   },
   actions: {
@@ -81,6 +85,15 @@ export default createStore({
       await ParticularitiesService.getAll().then(({data}) => {
         commit('STORE_PARTICULARITIES', data)
       })
+    },
+    getParticularity({commit}, particularityId){
+      ParticularitiesService.getParticularity(particularityId).then(({data}) => {
+        commit('STORE_PARTICULARITY', data)
+      })
+    },
+    updateParticularity({commit}, {particularity}){
+      console.log("Id recue par action", particularity.id);
+      ParticularitiesService.updateParticularity(particularity);
     }
   },
   modules: {
