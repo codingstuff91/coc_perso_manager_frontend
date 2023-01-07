@@ -20,4 +20,12 @@
         @apply flex;
         @apply flex-col;
     }
+    .btn{
+        @apply bg-gray-400;
+        @apply py-2;
+        @apply px-4;
+        @apply mt-4;
+        @apply text-white;
+        @apply rounded-lg;
+    }
 }
