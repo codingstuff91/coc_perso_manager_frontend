@@ -4,7 +4,7 @@
             {{ label }}
         </label>
         <input
-            class="mt-1 h-4 p-4 rounded-lg focus:outline-none focus:ring focus:ring-stale-400"
+            class="mt-1 h-4 p-4 rounded-lg focus:outline-none focus:ring focus:ring-stale-400 border-2 border-gray-600"
             :type="$attrs.type" 
             v-model="modelValue" 
             @input="$emit('update:modelValue', $event.target.value)"

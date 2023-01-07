@@ -4,7 +4,7 @@
             {{ label }}
         </label>
         <textarea 
-            class="mt-1 p-4 rounded-lg focus:outline-none focus:ring focus:ring-stale-400"
+            class="mt-1 p-4 rounded-lg focus:outline-none focus:ring focus:ring-stale-400 border-2 border-gray-600"
             :rows="rows"
             v-model="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
