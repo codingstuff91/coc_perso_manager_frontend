@@ -2,6 +2,7 @@ import CharacterService from '@/services/CharacterService';
 import { createStore } from 'vuex'
 import AuthService from '@/services/AuthService';
 import ParticularitiesService from '@/services/ParticularitiesService'
+import CapacitiesService from '@/services/CapacitiesService';
 
 export default createStore({
   state: {
@@ -43,6 +44,9 @@ export default createStore({
     },
     STORE_PARTICULARITY(state, particularity){
       state.particularity = particularity
+    },
+    STORE_CAPACITIES(state, capacities){
+      state.capacities = capacities
     }
   },
   actions: {
@@ -80,8 +84,13 @@ export default createStore({
         commit('STORE_CHARACTER_CAPACITIES', response.data)
       })
     },
+    async getAllCapacities({commit}) {
+      await CapacitiesService.getAll().then(response => {
+        console.log('capacites trouvées', response.data);
+        commit('STORE_CAPACITIES', response.data)
+      })
+    },
     async getAllParticularities({commit}) {
-      console.log("action appellée");
       await ParticularitiesService.getAll().then(({data}) => {
         commit('STORE_PARTICULARITIES', data)
       })
