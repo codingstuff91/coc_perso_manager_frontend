@@ -7,6 +7,7 @@ import CharacterShow from '../views/CharacterShow.vue';
 import AdminIndex from '../views/admin/AdminIndex.vue';
 import ParticularitiesIndex from '../views/admin/ParticularitiesIndex.vue';
 import ParticularitiesEdit from '../views/admin/ParticularitiesEdit.vue';
+import CapacitiesIndex from '../views/admin/CapacitiesIndex.vue';
 import store from '../store';
 
 const routes = [
@@ -51,6 +52,11 @@ const routes = [
     path: '/admin/traits/:id',
     name: 'traits.edit',
     component: ParticularitiesEdit
+  },
+  {
+    path: '/admin/capacities',
+    name: 'capacities.index',
+    component: CapacitiesIndex
   },
 ]
 
